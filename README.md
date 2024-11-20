@@ -4,11 +4,15 @@
 - 👉 [rootkit-termux-write](https://victorh028.github.io/rootkit-termux/#) 
 - 👉 [rootkit-termux-ls]()
 
+---
+
+# Lista probada en termux 
+
+- https://github.com/ProfessionallyEvil/LD_PRELOAD-accept-backdoor
+
 # Referecias 
 
 - https://www.kernel.org/doc/html/latest/driver-api/driver-model/index.html
-
 - https://web.archive.org/web/20140701183221/https://www.thc.org/papers/LKM_HACKING.html
-
 - https://www.man7.org/linux/man-pages/man3/dlsym.3p.html
 
