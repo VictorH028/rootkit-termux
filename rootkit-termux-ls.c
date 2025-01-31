@@ -5,7 +5,6 @@
 #include <dirent.h>
 #include <string.h>
 
-
 // Puntero de función typedef para la función readdir ls original
 typedef struct dirent* (*ls_t)(DIR*);
 // función ls interpuesta
